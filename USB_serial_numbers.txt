@@ -1,0 +1,6 @@
+FT1UVP3B - He fill level
+FT1UVQPS - Julabo chiller
+
+Coolpak compressor is connected to a USB-serial converter with no serial number,
+but the manufacturer is 'Prolific' so it can be identified.
+
