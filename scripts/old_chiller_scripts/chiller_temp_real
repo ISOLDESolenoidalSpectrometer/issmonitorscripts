@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# set baud rate and parity
+stty -F $CHILLERPORT 4800 evenp
+
+# start command to read response
+#cat temp < $CHILLERPORT &
+
+# set chiller temperature
+echo "in_pv_00" > $CHILLERPORT
+read -t 3 line < $CHILLERPORT
+
+# print response
+echo $line

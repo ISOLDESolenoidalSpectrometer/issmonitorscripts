@@ -1,0 +1,5 @@
+#!/bin/bash
+
+stty -F $CHILLERPORT 4800 evenp
+
+echo "out_mode_05 0" > $CHILLERPORT

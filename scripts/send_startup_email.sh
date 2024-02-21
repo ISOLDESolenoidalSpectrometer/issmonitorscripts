@@ -5,7 +5,7 @@
 # 20190219 - Joonas Konki (joonas.konki@cern.ch)
 #
 
-TO=liam.gaffney@cern.ch,bruno.olaizola@cern.ch
+TO=liam.gaffney@cern.ch,patrick.macgregor@cern.ch,samuel.reeve@postgrad.manchester.ac.uk
 #TO=joonas.konki@cern.ch,liam.gaffney@cern.ch
 
 /usr/sbin/sendmail -i $TO <<MAIL_END

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# check there is a value passed
+if [ $# -ne 1 ]
+then
+    echo "Usage: fill_level <%>"
+    exit 1
+fi
+
+# Get timestamp
+ts=$(date +%s)
+full="$(date +'%b %d %02H:%02M:%02S %Y')"
+
+# check that it's between 0 and 100
+if (( $(echo "$1 > 0.0" | bc -l) )) && (( $(echo "$1 < 100.0" | bc -l) ))
+then
+    # write to log file
+    level=$1
+    logfile=/home/pi/monitor_data/fill_level.log
+    printf "%s\t%s\t%s\n" "$ts" "$level" "$full" >> logfile
+    printf "%s\t%s\t%s\n" "$ts" "$level" "$full"
+    
+    # send to influx
+    curl -s -i -XPOST 'https://iss-status.web.cern.ch/write?db=he' --data-binary "level,mode=script value=${level}" > /dev/null
+else
+    echo "Fill level should be between 0% and 100%"
+fi

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# check there is a value passed
+if [ $# -ne 1 ]
+then
+	echo "Usage: chiller_temp_set <C>"
+	exit 1
+fi
+
+# check that it's between 10 C and 20 C
+if (( $(echo "$1 > 9.9" | bc -l) )) && (( $(echo "$1 < 20.1" | bc -l) ))
+then
+    # set baud rate and parity
+	stty -F $(CHILLERPORT) 4800 evenp
+
+	# set chiller temperature
+	echo "out_sp_00 $1" > $(CHILLERPORT)
+else
+    echo "Chiller temperature should be between 10C and 20C"
+fi
+
+

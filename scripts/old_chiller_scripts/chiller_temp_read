@@ -1,0 +1,15 @@
+#!/bin/bash
+
+CPORT="/dev/ttyUSB2"
+
+# set baud rate and parity
+stty -F $CPORT 4800 evenp
+
+# start command to read response
+cat temp < $CPORT &
+
+# set chiller temperature
+echo "in_sp_00" > $CPORT
+
+# print response
+echo $temp

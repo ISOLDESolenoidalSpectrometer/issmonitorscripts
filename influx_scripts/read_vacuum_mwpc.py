@@ -16,9 +16,9 @@ from serial.tools import list_ports
 #     urllib3.disable_warnings()
 #
 
-EDWARDS_SERIAL_NO = 'FT5NDRBK'
+EDWARDS_SERIAL_NO = 'FT5Z6FCA'
 GAUGE_NUMBERS = [1,2]
-GAUGE_NAMES = ['mwpc','issdoor']
+GAUGE_NAMES = ['mwpc','empty']
 LINETERM = '\r'
 ENQ = '?'
 SPEED=9600
@@ -26,7 +26,6 @@ SPEED=9600
 HTTP_TIMEOUT = 10
 
 # Find out which serial port the Edwards controller is connected to.
-# ISS Pfeiffer controller has serial_number: AH05GWEL
 myport = ''
 ports = list_ports.comports()
 for port in ports:

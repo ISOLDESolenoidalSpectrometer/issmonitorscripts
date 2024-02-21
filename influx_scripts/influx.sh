@@ -3,6 +3,7 @@
 # Read twice in case it is already in use by something else
 #python ADC_test.py > tmp.txt
 python /home/pi/influx_scripts/ADC_read.py > /home/pi/influx_scripts/adc_output.txt
+sleep 10
 
 # Get timestamp
 ts=$(date +%s)

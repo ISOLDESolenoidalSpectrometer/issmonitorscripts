@@ -56,7 +56,7 @@ Edit /home/pi/.bashrc to include scripts folders in PATH ::
 
 Test these scripts are working ::
 
-	. /home/pi/influx_scripts/hemon_serial_3.py
+	. /home/pi/influx_scripts/hemon_serial_2.py
 	. /home/pi/influx_scripts/influx.sh
 	. /home/pi/scripts/send_alert_email.sh
 	. /home/pi/scripts/compressor_status.py

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# set baud rate and parity
+stty -F /dev/ttyUSB1 4800 evenp
+
+# start command to read response
+cat temp < /dev/ttyUSB1 &
+
+# set chiller temperature
+echo "in_sp_00" > /dev/ttyUSB1
+
+# print response
+echo $temp
