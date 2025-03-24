@@ -45,11 +45,13 @@ mg.flushOutput()
 # Gauges
 for i in range(len(GAUGE_NUMBERS)):
 	mg.write(('?GA' + str(GAUGE_NUMBERS[i]) + LINETERM).encode('ascii') )
+	#mg.write(('?GV' + str(GAUGE_NUMBERS[i]) + LINETERM).encode('ascii') )
 	res = mg.readline().decode('ascii')
+	print(repr(res))
 	pattern = re.match(r'(Err)(\d*)', res, re.IGNORECASE)
 	if pattern is not None:
 		pressure = 1010
-		status = int(pattern.group(1))
+		status = int(pattern.group(2))
 	else:
 		pressure = float(res.strip('\r'))
 		status = 0

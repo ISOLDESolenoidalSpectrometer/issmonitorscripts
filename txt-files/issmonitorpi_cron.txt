@@ -25,14 +25,16 @@
 #* * * * * /home/pi/influx_scripts/read_vacuum.sh
 * * * * * /home/pi/influx_scripts/read_vacuum_twogauges.py > /dev/null 2>&1
 #* * * * * /home/pi/influx_scripts/read_vacuum_singlegauge.py > /dev/null 2>&1
-* * * * * /home/pi/influx_scripts/read_vacuum_ionchamber.py > /dev/null 2>&1
-* * * * * /home/pi/influx_scripts/read_vacuum_mwpc.py > /dev/null 2>&1
-0-59/10 * * * * /home/pi/influx_scripts/hemon_serial_3.py > /dev/null 2>&1
+#* * * * * /home/pi/influx_scripts/read_vacuum_ionchamber.py > /dev/null 2>&1
+#* * * * * /home/pi/influx_scripts/read_vacuum_mwpc.py > /dev/null 2>&1
+*/10 * * * * /home/pi/influx_scripts/hemon_serial_3.py > /dev/null 2>&1
 #1-59/3 * * * * /home/pi/scripts/julabolib/julabo_get_temp.py > /dev/null 2>&1
-2-59/3 * * * * /home/pi/scripts/check_compressor.py > /dev/null 2>&1
-3-59/3 * * * * /home/pi/scripts/check_julabo.py > /dev/null 2>&1
+* * * * * /home/pi/scripts/get_cryo_pressure.py > /dev/null 2>&1
+*/3 * * * * /home/pi/scripts/check_compressor.py > /dev/null 2>&1
+*/3 * * * * /home/pi/scripts/check_julabo.py > /dev/null 2>&1
 #8 * * * * /home/pi/scripts/compressor_on.py > /dev/null 2>&1
 #15 8 4 2 * /home/pi/scripts/compressor_off.py > /dev/null 2>&1
 #15 8 4 2 * /home/pi/scripts/julabolib/julabo_off.py > /dev/null 2>&1
-
+*/15 * * * * /home/pi/scripts/take_photo_with_webcam.sh > /dev/null 2>&1
+* * * * 0 /home/pi/scripts/delete_old_webcam_images.sh > /dev/null 2>&1
 #@reboot /home/pi/influx_scripts/influx_watch.sh &

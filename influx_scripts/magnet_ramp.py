@@ -2,10 +2,10 @@
 
 import serial
 import re
-from datetime import datetime
 import time
 import requests
 import datetime
+import urllib3
 
 def escape_ansi(line):
   ansi_regex = r'\x1b(' \

@@ -7,8 +7,10 @@ if [ $# -ne 2 ]; then
 	exit 1
 fi
 
-TO=liam.gaffney@cern.ch,patrick.macgregor@cern.ch,samuel.reeve@postgrad.manchester.ac.uk
-#TO=joonas.konki@cern.ch,liam.gaffney@cern.ch
+EMAIL_LIST=$( cat $( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )/.email_list )
+
+TO="${EMAIL_LIST}"
+
 /usr/sbin/sendmail -i $TO <<MAIL_END
 Subject: ISSMONITORPI alert
 To: $TO
